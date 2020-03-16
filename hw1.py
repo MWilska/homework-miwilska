@@ -69,6 +69,19 @@ def no_new_cases_count(day: int, month: int, year: int = 2020) -> int:
     :param year: Month to get the countries for as an integer indexed from 1
     :return: Number of countries/regions where the count has not changed in a day
     """
+ """
+    Returns the number of countries/regions where the infection count in a given day
+    was NOT the same as the previous day.
+    Ex.
+    >>> no_new_cases_count(11, 2, 2020)
+    35
+    >>> no_new_cases_count(3, 3)
+    57
+    :param day: 4 digit integer representation of the year to get the cases for, defaults to 2020
+    :param month: Day of month to get the countries for as an integer indexed from 1
+    :param year: Month to get the countries for as an integer indexed from 1
+    :return: Number of countries/regions where the count has not changed in a day
+    """
     date= f"{month}/{day}/20"
     wczoraj =f"{month}/{day-1}/20"
     a= confirmed_cases.loc[confirmed_cases[date]!=confirmed_cases[wczoraj]].index
